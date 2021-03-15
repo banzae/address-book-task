@@ -1,0 +1,71 @@
+@import './variables';
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Lat-Bold, sans-serif;
+}
+
+p, span, a, small {
+  font-family: Lato-Regular, sans-serif;
+}
+
+p, span {
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+/*  BUTTONS  */
+
+.btn {
+  padding: 7px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.btn-primary {
+  color: $light-text;
+  background: $primary;
+  border: 1px solid $primary-light;
+}
+
+.btn-primary:hover {
+  background: $primary-light;
+}
+
+
+.btn-secondary {
+  color: $light-text;
+  background: $secondary;
+  border: 1px solid $secondary-light;
+}
+
+.btn-secondary:hover {
+  background: $secondary-light;
+}
+
+
+/*  end BUTTONS  */
+/*  INPUT  */
+
+input, select {
+  padding: 7px 12px;
+  font-size: 16px;
+  border-radius: 7px;
+  border: 1px solid $primary-light;
+  margin: 7px;
+}
+
+select {
+  max-width: 220px;
+}
+
+/* end INPUT  */
+/* CONTAINERS */
+.min-h-100 {
+  min-height: calc(100vh - 67px);
+  height: calc(100vh - 67px);
+}
+
+/* end CONTAINERS */

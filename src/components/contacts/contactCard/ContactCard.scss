@@ -1,0 +1,95 @@
+@import "../../../typography/variables";
+
+.contact-card-wrapper {
+  flex: 0 1;
+  margin: 7px;
+  border-radius: 7px;
+  border: 1px solid $primary;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  width: 30%;
+  min-width: 30%;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, .05), 0 15px 40px rgba(166, 173, 201, .2);
+
+  .card-header {
+    position: relative;
+    padding: 15px;
+    box-shadow: 0 5px 10px rgba(154, 160, 185, .05), 0 15px 40px rgba(166, 173, 201, .2);
+    margin-bottom: 10px;
+    span {
+      text-transform: capitalize;
+    }
+    div {
+      position: absolute;
+      display: none;
+      right: 10px;
+      top: calc(50% - 11px);
+
+      span {
+        font-size: 16px;
+        color: black;
+        margin: 3px;
+        cursor: pointer;
+      }
+    }
+
+    &:hover div {
+      display: unset;
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 15px;
+
+    div {
+      margin: 7px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+
+      label {
+        width: 40px;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.confirmation-modal {
+  h2, p {
+    margin: 3px;
+  }
+
+  div {
+    margin-top: 15px;
+    button {
+      margin: auto 5px;
+    }
+  }
+
+  div form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    button {
+      margin-top: 15px;
+      width: calc(100% - 12px);
+    }
+  }
+}
+
+@media all and (max-width: 786px) {
+  .contact-card-wrapper {
+    width: 100%;
+    min-width: 80%;
+  }
+}
