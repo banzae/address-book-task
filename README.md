@@ -48,4 +48,6 @@ All routes are defined in `src/config/routes` and then mapped in the `Routes` co
 All pages are located in `src/pages` and each page is consist of smaller components
 located in `src/components`
 
-
+> There are two approaches in the solution, one is on `master` branch and the other on `second-solution`, in the first
+>one there is only one page where you can search/add/edit and delete contacts while in the other one there are three pages, one for listing the contacts, one for
+> creating and one for update/delete contact.
