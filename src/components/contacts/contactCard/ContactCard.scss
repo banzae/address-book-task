@@ -65,24 +65,15 @@
   h2, p {
     margin: 3px;
   }
-
-  div {
+  width: 50%;
+  max-width: 50%;
+  #modal-buttons {
     margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     button {
       margin: auto 5px;
-    }
-  }
-
-  div form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    button {
-      margin-top: 15px;
-      width: calc(100% - 12px);
     }
   }
 }
@@ -91,5 +82,9 @@
   .contact-card-wrapper {
     width: 100%;
     min-width: 80%;
+  }
+
+  .confirmation-modal {
+    max-width: 95%;
   }
 }

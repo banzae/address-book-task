@@ -1,26 +1,26 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement } from 'react'
 import Button from '../../common/Button'
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons'
 import SearchBar from '../../common/searchBar/SearchBar'
 import { searchContacts } from '../../../pages/contacts/services/actions'
 import { useDispatch } from 'react-redux'
-import CreateContact from '../createContact/CreateContact'
+import { createContactPageRoute } from '../../../config/routes'
+import { useHistory } from 'react-router'
 
 function ContactsToolbar(): ReactElement {
   const dispatch = useDispatch()
-  const [showAddContact, setShowAddContact] = useState(false)
+  const history = useHistory()
 
   const onSearch = (searchValue: string) => {
     dispatch(searchContacts(searchValue))
   }
 
   const onCreateContact = () => {
-    setShowAddContact(true)
+    history.push(createContactPageRoute.path)
   }
 
 
   return <div id='toolbar'>
-    <CreateContact show={showAddContact} close={() => setShowAddContact(false)}/>
     <div className='buttons-container'>
       <Button icon={faAddressBook} text={'Create'} onClick={onCreateContact}/>
     </div>

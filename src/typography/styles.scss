@@ -46,6 +46,17 @@ h3 {
 }
 
 
+.btn-danger {
+  color: $light-text;
+  background: $danger;
+  border: 1px solid $danger;
+}
+
+.btn-danger:hover {
+  background: rgba(217, 83, 79, 0.6);
+
+}
+
 /*  end BUTTONS  */
 /*  INPUT  */
 

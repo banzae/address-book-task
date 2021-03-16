@@ -1,6 +1,5 @@
-import React, { ReactElement, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getContacts } from './services/actions'
+import React, { ReactElement } from 'react'
+import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store/rootReducer'
 import ContactInterface from '../../interfaces/contact/contact.interface'
 import ContactCard from '../../components/contacts/contactCard/ContactCard'
@@ -8,13 +7,7 @@ import './ContactPage.scss'
 import ContactsToolbar from '../../components/contacts/common/ContactsToolbar'
 
 function ContactsPage(): ReactElement {
-  const dispatch = useDispatch()
   const { contacts: { contacts } } = useSelector((state: RootReducer) => state)
-
-
-  useEffect(() => {
-    dispatch(getContacts())
-  }, [dispatch])
 
   return <div className='container'>
     <ContactsToolbar />

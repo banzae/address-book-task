@@ -8,13 +8,14 @@ import db from '../../../services/storage/db'
 import UpdateContactActionInterface from '../../../interfaces/contact/updateContactAction.interface'
 import { setErrors } from '../../../services/errors/actions'
 import validateContactForm from '../../../validation/validateContact'
+import { setToastMessage } from '../../../services/feedback/actions'
 
 export const getContacts: ActionCreator<void> = () => async (dispatch: Dispatch) => {
   try {
     const contacts = await db.getAll()
     return dispatch(setContacts(contacts))
   } catch (err) {
-    console.error('err', err)
+    dispatch(setErrors(err))
   }
 }
 
@@ -24,6 +25,8 @@ export const createContact: ActionCreator<void> = (contactData: ContactInterface
     if(!isValid) throw errors
     await db.createContact(contactData)
     dispatch(addToContacts(contactData))
+    dispatch(setToastMessage({message: "Successfully created contact"}))
+
     cb && cb()
   } catch (err) {
     dispatch(setErrors(err))
@@ -37,6 +40,7 @@ export const editContact: ActionCreator<void> = (contactData: ContactInterface, 
     if(!isValid) throw errors
     await db.updateContact(contactData)
     dispatch(modifyContact(contactData))
+    dispatch(setToastMessage({message: "Successfully edited contact"}))
     cb && cb()
   } catch (err) {
     dispatch(setErrors(err))
@@ -44,9 +48,10 @@ export const editContact: ActionCreator<void> = (contactData: ContactInterface, 
   }
 }
 
-export const deleteContact: ActionCreator<void> = (contactId: number) => async (dispatch: Dispatch) => {
+export const deleteContact: ActionCreator<void> = (contactId: number, cb?: () => void) => async (dispatch: Dispatch) => {
   try {
     await db.deleteContact(contactId)
+    cb && cb()
   } catch (err) {
     dispatch(setErrors(err))
   }

@@ -12,10 +12,9 @@ function DeleteContactModal(props: DeleteContactModalInterface): ReactElement {
   return <Modal show={props.show} close={props.close} className='confirmation-modal'>
     <h2>Are you sure?</h2>
     <p>You want to delete this contact?</p>
-    <div>
+    <div id='modal-buttons'>
       <Button text={'Yes'} onClick={props.onConfirm}/>
       <Button className='btn-secondary' text={'No'} onClick={props.close}/>
-
     </div>
   </Modal>
 }

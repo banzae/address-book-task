@@ -1,20 +1,15 @@
 import React, { ReactElement } from 'react'
 import Icon from '../../common/Icon'
-import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 
 interface CardHeaderInterface {
   id: number;
   firstName: string;
   lastName: string;
-  onDeleteClick?: (id: number) => void
   onEditClick?: (id: number) => void
 }
 
-function CardHeader({ firstName, lastName, onDeleteClick, onEditClick, id }: CardHeaderInterface): ReactElement {
-
-  const onDelete = () => {
-    onDeleteClick && onDeleteClick(id)
-  }
+function CardHeader({ firstName, lastName, onEditClick, id }: CardHeaderInterface): ReactElement {
 
   const onEdit = () => {
     onEditClick && onEditClick(id)
@@ -23,7 +18,6 @@ function CardHeader({ firstName, lastName, onDeleteClick, onEditClick, id }: Car
   return <div className='card-header'>
     <span>{`${firstName} ${lastName}`}</span>
     <div>
-      <span onClick={onDelete}><Icon icon={faTrash} /></span>
       <span onClick={onEdit}><Icon icon={faPencilAlt} /></span>
     </div>
   </div>
